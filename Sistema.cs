@@ -19,12 +19,12 @@ namespace RegistroDePacientesAPP
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnLeer_Click(object sender, EventArgs e)
@@ -34,12 +34,24 @@ namespace RegistroDePacientesAPP
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Ingresando...");
+            using (Registro registro = new Registro())
+            {
+                this.Hide();
+                registro.ShowDialog();
+                this.Show();
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Ingresando...");
+            using(Buscador buscador = new Buscador())
+            {
+                this.Hide();
+                buscador.ShowDialog();
+                this.Show();
+            }
         }
 
         private void Sistema_Load(object sender, EventArgs e)
