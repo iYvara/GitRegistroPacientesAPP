@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,6 +95,12 @@ namespace RegistroDePacientesAPP
                             "\nDNI: " + dni +
                             "\nNivel de Emergencia: " + nivel +
                             "\nEstado: " + estado);
+
+            string registro = "PAC-0001;" + nombres + ";" + apellidos + ";" + dni + ";" +
+                              DateTime.Now.ToString("dd/MM/yyyy") + ";El Agustino;Hospital Nacional Unanue;Ambulancia;Requiere oxigeno de emergencia;" +
+                              nivel + ";" + (nivel * 2 + 3) + ";" + estado + ";";
+
+            System.IO.File.AppendAllText("pacientes.txt", registro + Environment.NewLine);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

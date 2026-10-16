@@ -29,7 +29,14 @@ namespace RegistroDePacientesAPP
 
         private void btnLeer_Click(object sender, EventArgs e)
         {
-
+            if (System.IO.File.Exists("pacientes.txt"))
+            {
+                System.Diagnostics.Process.Start("notepad.exe", "pacientes.txt");
+            }
+            else
+            {
+                MessageBox.Show("Todavia no existe el archivo de pacientes.");
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
