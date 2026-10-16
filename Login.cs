@@ -34,7 +34,13 @@ namespace RegistroDePacientesAPP
 
             if (clave == "Admin123")
             {
-                MessageBox.Show("Contraseña correcta, bienvenido/a.");
+                MessageBox.Show("Contraseña correcta.");
+                using (Sistema sistema = new Sistema())
+                {
+                    this.Hide();
+                    sistema.ShowDialog();
+                    this.Show();
+                }
 
             }
             else
