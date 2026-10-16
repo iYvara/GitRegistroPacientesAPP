@@ -24,7 +24,17 @@ namespace RegistroDePacientesAPP
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult respuesta = MessageBox.Show("¿Esta seguro de borrar todos los pacientes?", "Confirmar", MessageBoxButtons.YesNo);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                System.IO.File.WriteAllText("pacientes.txt", "");
+                MessageBox.Show("Se borraron los registros.");
+            }
+            else
+            {
+                MessageBox.Show("Operacion cancelada.");
+            }
         }
 
         private void btnLeer_Click(object sender, EventArgs e)
