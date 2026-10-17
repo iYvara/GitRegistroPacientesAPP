@@ -113,5 +113,32 @@
   <ItemGroup>
     <None Include="Resources\hospitalunanue.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-document-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-document-192.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

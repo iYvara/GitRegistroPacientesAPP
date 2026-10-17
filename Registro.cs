@@ -19,6 +19,27 @@ namespace RegistroDePacientesAPP
             InitializeComponent();
         }
 
+        static string GenerarCodigoPaciente(int contador)
+        {
+            string numerocodigo;
+
+            numerocodigo = Convert.ToString(contador);
+
+            while (numerocodigo.Length < 4)
+            {
+                numerocodigo = "0" + numerocodigo;
+            }
+            return "PAC-" + numerocodigo;
+        }
+
+        static int CalcularPrioridad(int nivel)
+        {
+            int prioridad;
+
+            prioridad = nivel * 2;
+
+            return prioridad;
+        }
         private void txtNivelDeEmergencia_TextChanged(object sender, EventArgs e)
         {
 
@@ -45,6 +66,8 @@ namespace RegistroDePacientesAPP
             string apellidos = txtApellidos.Text;
             int dni, nivel;
             string estado;
+            int contador = 1;
+
 
             if (nombres == "")
             {
@@ -90,15 +113,31 @@ namespace RegistroDePacientesAPP
                     return;
             }
 
+            if (System.IO.File.Exists("pacientes.txt"))
+            {
+                foreach (string linea in System.IO.File.ReadAllLines("pacientes.txt"))
+                {
+                    if (string.IsNullOrWhiteSpace(linea))
+                        continue;
+
+                    string[] datos = linea.Split(';');
+
+                    if (datos.Length >= 12)
+                    {
+                        contador++;
+                    }
+                }
+            }
+
             MessageBox.Show("SOLICITUD REGISTRADA" +
                             "\nPaciente: " + nombres + " " + apellidos +
                             "\nDNI: " + dni +
                             "\nNivel de Emergencia: " + nivel +
                             "\nEstado: " + estado);
 
-            string registro = "PAC-0001;" + nombres + ";" + apellidos + ";" + dni + ";" +
-                              DateTime.Now.ToString("dd/MM/yyyy") + ";El Agustino;Hospital Nacional Unanue;Ambulancia;Requiere oxigeno de emergencia;" +
-                              nivel + ";" + (nivel * 2 + 3) + ";" + estado + ";";
+            string registro = GenerarCodigoPaciente(contador) + ";" + nombres + ";" + apellidos + ";" + dni + ";" +
+                              DateTime.Now.ToString("dd/MM/yyyy HH:mm") + ";El Agustino;Hospital Nacional Unanue;Ambulancia;Requiere oxigeno de emergencia;" +
+                              nivel + ";" + CalcularPrioridad(nivel) + ";" + estado + ";";
 
             System.IO.File.AppendAllText("pacientes.txt", registro + Environment.NewLine);
         }
