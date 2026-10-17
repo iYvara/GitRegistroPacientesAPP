@@ -39,9 +39,9 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.btnAmbulancia = new System.Windows.Forms.RadioButton();
+            this.btnMedicamentos = new System.Windows.Forms.RadioButton();
+            this.btnCitaMedica = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -141,47 +141,50 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Solicitud";
             // 
-            // radioButton1
+            // btnAmbulancia
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(222, 293);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(117, 24);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Ambulancia";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnAmbulancia.AutoSize = true;
+            this.btnAmbulancia.Location = new System.Drawing.Point(222, 293);
+            this.btnAmbulancia.Name = "btnAmbulancia";
+            this.btnAmbulancia.Size = new System.Drawing.Size(117, 24);
+            this.btnAmbulancia.TabIndex = 11;
+            this.btnAmbulancia.TabStop = true;
+            this.btnAmbulancia.Text = "Ambulancia";
+            this.btnAmbulancia.UseVisualStyleBackColor = true;
+            this.btnAmbulancia.CheckedChanged += new System.EventHandler(this.btnAmbulancia_CheckedChanged);
             // 
-            // radioButton2
+            // btnMedicamentos
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(562, 289);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(138, 24);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Medicamentos";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnMedicamentos.AutoSize = true;
+            this.btnMedicamentos.Location = new System.Drawing.Point(562, 289);
+            this.btnMedicamentos.Name = "btnMedicamentos";
+            this.btnMedicamentos.Size = new System.Drawing.Size(138, 24);
+            this.btnMedicamentos.TabIndex = 12;
+            this.btnMedicamentos.TabStop = true;
+            this.btnMedicamentos.Text = "Medicamentos";
+            this.btnMedicamentos.UseVisualStyleBackColor = true;
+            this.btnMedicamentos.CheckedChanged += new System.EventHandler(this.btnMedicamentos_CheckedChanged);
             // 
-            // radioButton3
+            // btnCitaMedica
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(398, 291);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(117, 24);
-            this.radioButton3.TabIndex = 13;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Cita Medica";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnCitaMedica.AutoSize = true;
+            this.btnCitaMedica.Location = new System.Drawing.Point(398, 291);
+            this.btnCitaMedica.Name = "btnCitaMedica";
+            this.btnCitaMedica.Size = new System.Drawing.Size(117, 24);
+            this.btnCitaMedica.TabIndex = 13;
+            this.btnCitaMedica.TabStop = true;
+            this.btnCitaMedica.Text = "Cita Medica";
+            this.btnCitaMedica.UseVisualStyleBackColor = true;
+            this.btnCitaMedica.CheckedChanged += new System.EventHandler(this.btnCitaMedica_CheckedChanged);
             // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.btnCitaMedica);
+            this.Controls.Add(this.btnMedicamentos);
+            this.Controls.Add(this.btnAmbulancia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnIngresar);
@@ -213,8 +216,8 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton btnAmbulancia;
+        private System.Windows.Forms.RadioButton btnMedicamentos;
+        private System.Windows.Forms.RadioButton btnCitaMedica;
     }
 }

@@ -14,6 +14,7 @@ namespace RegistroDePacientesAPP
 {
     public partial class Registro : Form
     {
+        private string tipoSolicitud = "";
         public Registro()
         {
             InitializeComponent();
@@ -82,10 +83,36 @@ namespace RegistroDePacientesAPP
             }
 
             int.TryParse(txtDNI.Text, out dni);
+            bool repetido;
+
+            repetido = false;
 
             if (dni < 10000000 || dni > 99999999)
             {
                 MessageBox.Show("Error: El DNI debe tener 8 digitos.");
+                return;
+            }
+
+            if (System.IO.File.Exists("pacientes.txt"))
+            {
+                foreach (string linea in System.IO.File.ReadAllLines("pacientes.txt"))
+                {
+                    if (string.IsNullOrWhiteSpace(linea))
+                        continue;
+
+                    string[] datos = linea.Split(';');
+
+                    if (datos.Length >= 12 && datos[3] == dni.ToString())
+                    {
+                        repetido = true;
+                        break;
+                    }
+                }
+            }
+
+            if (repetido)
+            {
+                MessageBox.Show("Error: este DNI ya fue registrado anteriormente.");
                 return;
             }
 
@@ -133,10 +160,11 @@ namespace RegistroDePacientesAPP
                             "\nPaciente: " + nombres + " " + apellidos +
                             "\nDNI: " + dni +
                             "\nNivel de Emergencia: " + nivel +
-                            "\nEstado: " + estado);
+                            "\nEstado: " + estado +
+                            "\nTipo de Solicitud: " + tipoSolicitud);
 
             string registro = GenerarCodigoPaciente(contador) + ";" + nombres + ";" + apellidos + ";" + dni + ";" +
-                              DateTime.Now.ToString("dd/MM/yyyy HH:mm") + ";El Agustino;Hospital Nacional Unanue;Ambulancia;Requiere oxigeno de emergencia;" +
+                              DateTime.Now.ToString("dd/MM/yyyy HH:mm") + ";El Agustino;Hospital Nacional Unanue;" + tipoSolicitud + ";Requiere oxigeno de emergencia;" +
                               nivel + ";" + CalcularPrioridad(nivel) + ";" + estado + ";";
 
             System.IO.File.AppendAllText("pacientes.txt", registro + Environment.NewLine);
@@ -145,6 +173,30 @@ namespace RegistroDePacientesAPP
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAmbulancia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnAmbulancia.Checked)
+            {
+                tipoSolicitud = "Ambulancia";
+            }
+        }
+
+        private void btnCitaMedica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnCitaMedica.Checked)
+            {
+                tipoSolicitud = "Cita Medica";
+            }
+        }
+
+        private void btnMedicamentos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnMedicamentos.Checked)
+            {
+                tipoSolicitud = "Medicamentos";
+            }
         }
     }
 }
