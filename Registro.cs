@@ -406,6 +406,11 @@ namespace RegistroDePacientesAPP
             this.Close();
         }
 
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnAmbulancia_CheckedChanged(object sender, EventArgs e)
         {
             if (btnAmbulancia.Checked)
