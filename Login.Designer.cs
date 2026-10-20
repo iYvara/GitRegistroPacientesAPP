@@ -235,7 +235,7 @@
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inicio";
+            this.Text = "Hospital Hipolito Unanue - Inicio";
             this.panel1.ResumeLayout(false);
             this.panelbeige.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

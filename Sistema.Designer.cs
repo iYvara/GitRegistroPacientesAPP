@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sistema));
             this.label2 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -268,10 +269,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Sistema";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema";
+            this.Text = "Hospital Hipolito Unanue - Sistema";
             this.Load += new System.EventHandler(this.Sistema_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

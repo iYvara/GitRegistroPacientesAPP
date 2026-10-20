@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buscador));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -220,7 +221,9 @@
             // 
             this.dgvPacientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
             this.dgvPacientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvPacientes.ColumnHeadersHeight = 34;
+            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPacientes.GridColor = System.Drawing.Color.Khaki;
             this.dgvPacientes.Location = new System.Drawing.Point(19, 16);
             this.dgvPacientes.Name = "dgvPacientes";
@@ -335,11 +338,11 @@
             // 
             // lblDescripcion
             // 
-            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDescripcion.Font = new System.Drawing.Font("MS Reference Sans Serif", 6F);
-            this.lblDescripcion.Location = new System.Drawing.Point(16, 349);
+            this.lblDescripcion.Location = new System.Drawing.Point(11, 331);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(105, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(261, 63);
             this.lblDescripcion.TabIndex = 29;
             this.lblDescripcion.Text = "Observaciones:";
             this.lblDescripcion.Click += new System.EventHandler(this.lblDescripcion_Click);
@@ -520,11 +523,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Buscador";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Buscador";
+            this.Text = "Hospital Hipolito Unanue - Buscador";
             this.Load += new System.EventHandler(this.Buscador_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
