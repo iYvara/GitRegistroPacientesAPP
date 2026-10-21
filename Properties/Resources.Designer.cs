@@ -63,6 +63,16 @@ namespace RegistroDePacientesAPP.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_vc5gbavc5gbavc5g {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_vc5gbavc5gbavc5g", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hospitalunanue {
             get {
                 object obj = ResourceManager.GetObject("hospitalunanue", resourceCulture);

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RegistroDePacientesAPP
@@ -12,16 +10,32 @@ namespace RegistroDePacientesAPP
         [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
 
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            SetProcessDPIAware();
+            SetProcessDPIAware(); // debe ir antes de crear cualquier formulario
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignUp());
+
+            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "cuentas.txt");
+
+            try
+            {
+                // Empezar siempre sin cuenta
+                if (File.Exists(ruta)) File.Delete(ruta);
+
+                Application.Run(new SignUp());
+            }
+            finally
+            {
+                // Al cerrar la app se borra la cuenta
+                try
+                {
+                    if (File.Exists(ruta)) File.Delete(ruta);
+                }
+                catch { }
+            }
         }
     }
 }
